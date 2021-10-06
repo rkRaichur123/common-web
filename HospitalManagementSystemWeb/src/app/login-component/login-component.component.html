@@ -1,41 +1,54 @@
-
 <body>
- 
-  <form class="text-center border border-light p-5">
+
+  <form [formGroup]="loginForm" novalidate class="text-center border border-light p-5" >
 
     <p class="h4 p-3 mb-2 bg-primary text-white text-center col-md-12" style="width:50%;margin-left:25%;">Sign in</p>
-<div class="container bg-light" style="width:50%;">
-  <div class="col-md-12 text-center">
-<ul>
-  <li><input type="checkbox"  id="doctor" (change)="userType($event)"/>
-    <label for="doctor"><img class="btn-xl" src="assets/icons/Doctor_homepage.jpg" style="width:100%;"/>Doctor</label>
-  </li>
-  <li><input type="checkbox"  id="patient" (change)="userType($event)"/>
-    <label for="patient"><img class="btn-xl" src="assets/icons/patient_homepage2.png" style="width:100%;"/>Patient</label>
-  </li>
-  
-</ul>
- <!-- Email -->
- <input type="text" id="defaultLoginFormEmail" class="form-control mb-4" placeholder="user-ID">
+    <div class="container bg-light" style="width:50%;">
+      <div class="col-md-12 text-center">
+        <ul>
+          <li><input type="checkbox" id="doctor" (change)="userType($event)" />
+            <label for="doctor"><img class="btn-xl" src="assets/icons/Doctor_homepage.jpg"
+                style="width:100%;" />Doctor</label>
+          </li>
+          <li><input type="checkbox" id="patient" (change)="userType($event)" />
+            <label for="patient"><img class="btn-xl" src="assets/icons/patient_homepage2.png"
+                style="width:100%;" />Patient</label>
+          </li>
 
- <!-- Password -->
- <input type="password" id="defaultLoginFormPassword" class="form-control mb-4" placeholder="Password">
-<div>
- <button  block="true" class="btn btn-primary col-md-8" (click)="userLogon()">Logon</button>
- </div>
- <div class="d-flex justify-content-around">
-  
-  <div>
-    <!-- Forgot password -->
-    <a href="" class="btn-xl">Forgot password?</a>
-    <a href="" class="btn-xl">Register</a>
-  </div>
-</div>
+        </ul>
+        <!-- user ID -->
+        <input type="text" id="userName" name="userName" class="form-control mb-4" placeholder="user-ID" formControlName="userName">
+        <div *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)" class="alert alert-danger">
+            <div *ngIf="loginForm.controls['userName'].errors?.required">
+            user-ID is required.
+          </div>
+        </div>
+       
+
+        <!-- Password -->
+        <input type="password" id="userPwd" name="userPwd" class="form-control mb-4" placeholder="Password"formControlName="userPwd">
+        <div *ngIf="loginForm.controls['userPwd'].invalid && (loginForm.controls['userPwd'].dirty || loginForm.controls['userPwd'].touched)" class="alert alert-danger">
+          <div *ngIf="loginForm.controls['userPwd'].errors?.required">
+          Password is required.
+        </div>
+      </div>
+
+        <div>
+          <button block="true" class="btn btn-primary col-md-8" (click)="userLogon()">Logon</button>
+        </div>
+        <div class="d-flex justify-content-around">
+
+          <div>
+            <!-- Forgot password -->
+            <a href="" class="btn-xl">Forgot password?</a>
+            <a href="" class="btn-xl">Register</a>
+          </div>
+        </div>
 
 
-</div>
-</div>
+      </div>
+    </div>
 
-</form>
- 
+  </form>
+
 </body>

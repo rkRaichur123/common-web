@@ -7,14 +7,17 @@ import { LoginComponentComponent } from './login-component/login-component.compo
 import { BsDropdownModule } from 'ngx-bootstrap/dropdown';
 import { TooltipModule } from 'ngx-bootstrap/tooltip';
 import { ModalModule } from 'ngx-bootstrap/modal';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { UserRegisterComponent } from './user-register/user-register.component';
 @NgModule({
   declarations: [
     AppComponent,
-    LoginComponentComponent
+    LoginComponentComponent,
+    UserRegisterComponent
   ],
   imports: [
     BrowserModule,BsDropdownModule,TooltipModule,ModalModule,
-    AppRoutingModule
+    AppRoutingModule,FormsModule,ReactiveFormsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
