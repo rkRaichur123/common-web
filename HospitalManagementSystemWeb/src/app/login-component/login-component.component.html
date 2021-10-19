@@ -17,9 +17,9 @@
 
         </ul>
         <!-- user ID -->
-        <input type="text" id="userName" name="userName" class="form-control mb-4" placeholder="user-ID" formControlName="userName">
-        <div *ngIf="loginForm.controls['userName'].invalid && (loginForm.controls['userName'].dirty || loginForm.controls['userName'].touched)" class="alert alert-danger">
-            <div *ngIf="loginForm.controls['userName'].errors?.required">
+        <input type="text" id="userID" name="userID" class="form-control mb-4" placeholder="user-ID" formControlName="userID">
+        <div *ngIf="loginForm.controls['userID'].invalid && (loginForm.controls['userID'].dirty || loginForm.controls['userID'].touched)" class="alert alert-danger">
+            <div *ngIf="loginForm.controls['userID'].errors?.required">
             user-ID is required.
           </div>
         </div>
@@ -41,7 +41,8 @@
           <div>
             <!-- Forgot password -->
             <a href="" class="btn-xl">Forgot password?</a>
-            <a href="" class="btn-xl">Register</a>
+            <!-- <a href="" class="btn-xl">Register</a> -->
+            <a  class="btn-xl" routerLink="/userRegister" routerLinkActive="active">Register</a>
           </div>
         </div>
 
